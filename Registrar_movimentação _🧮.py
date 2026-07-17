@@ -118,7 +118,7 @@ if st.button('Registrar ação'):
         'classificacao': classificacao,
         'responsavel': responsavel,
         'situacao': situacao, 
-        'obeservacao': observacao,
+        'observacao': observacao,
     }])
 
     # Lê a planilha Histórico
