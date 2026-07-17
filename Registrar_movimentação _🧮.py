@@ -61,12 +61,6 @@ if origem == 'Receita':
 
 else:
 
-    # if acao == 'Outros':
-    #     observacao = st.text_input('Descreva:').lower()
-    #     if observacao == '':
-    #         observacao = 'desconhecido'
-
-
     valor = st.number_input('Qual o valor? (ex: 199.99)')
 
     metodo_pagamento = st.selectbox('Qual foi o método de pagamento? ', 
@@ -107,6 +101,9 @@ else:
                                 'Pendente'
                             ))
     
+    observacao = st.text_input('Descreva:').lower()
+    if observacao == '':
+        observacao = 'não informado'
 
 if st.button('Registrar ação'):
 
