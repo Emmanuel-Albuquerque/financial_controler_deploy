@@ -24,7 +24,7 @@ despesa_total = df[df['origem'] == 'Despesa']['valor'].sum()
 col2.metric('Despesas totais❗', f'R$ {despesa_total:.2f}')
 
 saldo = receita_total - despesa_total
-col3.metric('# Disponível para Investimento 🌱', f'R$ {saldo:.2f}')
+col3.metric('Disponível para Investimento 🌱', f'R$ {saldo:.2f}')
 
 
 st.divider()
