@@ -37,7 +37,7 @@ col21.metric('Despesas Pagas: ', f"R$ {despesas_pagas:.2f}")
 
 despesas_pendentes = df[(df['origem'] == 'Despesa') & (df['situacao'] == 'Pendente')]['valor'].sum()
 #colorir em vermelho
-col21.metric('Despesas Pendentes: ', f"R$ {despesas_pendentes:.2f}")
+col22.metric('Despesas Pendentes: ', f"R$ {despesas_pendentes:.2f}")
 
 
 st.divider()
