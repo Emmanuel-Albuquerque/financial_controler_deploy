@@ -67,7 +67,7 @@ despesas_agrupadas = df_despesas.groupby('classificacao')['valor'].sum().reset_i
 
 ## criando as listas para o gráfico
 nomes = ['Receita Total'] + despesas_agrupadas['classificacao'].tolist() + ['Saldo Disponível']
-valores = [receita_total] + [-valor for valor in despesas_agrupadas['valor']] + [0]
+valores = [receita_total] + [-valor for valor in despesas_agrupadas['valor']] + [saldo]
 medidas = ['relative'] + ['relative'] * len(despesas_agrupadas) + ['total']
 
 fig_cascata = go.Figure(go.Waterfall(
