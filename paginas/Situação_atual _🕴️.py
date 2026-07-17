@@ -7,7 +7,7 @@ from datetime import datetime
 
 # conexão planilha
 hoje = datetime.now()
-ano = str(hoje.year)
+ano = str(hoje.year)[2:]
 mes = str(hoje.month)
 
 conn = st.connection("gsheets", type=GSheetsConnection)

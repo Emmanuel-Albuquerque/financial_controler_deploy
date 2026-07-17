@@ -24,7 +24,7 @@ def manipulador_valor(valor):
     return valor
 
 hoje = datetime.now()
-ano = str(hoje.year)
+ano = str(hoje.year)[2:]
 mes = str(hoje.month)
 
 # Conexão oficial
