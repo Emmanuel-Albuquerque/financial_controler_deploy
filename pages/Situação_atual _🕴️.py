@@ -53,7 +53,7 @@ if metrica_31 == 'Receita':
 else:
     col31.subheader('Distruibuição Despesas')
 
-fig_pizza = px.pie(df, names=metrica_31, values='total')
+fig_pizza = px.pie(df, names=metrica_31, values='valor')
 col31.plotly_chart(fig_pizza, use_container_width=True)
 
 # Gráfico Distruibuição dos gastos
