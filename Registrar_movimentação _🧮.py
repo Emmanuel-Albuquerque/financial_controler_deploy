@@ -133,3 +133,5 @@ if st.button('Registrar ação'):
     conn.update(worksheet=f"Histórico", data=df_historico)
 
     st.success(f'Movimentação registrada com sucesso!')
+
+st.rerun()
