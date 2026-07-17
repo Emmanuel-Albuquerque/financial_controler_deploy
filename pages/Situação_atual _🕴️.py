@@ -49,9 +49,9 @@ col31, col32, col33 = st.columns([0.34, 0.33, 0.34])
 metrica_31 = st.sidebar.selectbox('Análise Geral:', ['Receita', 'Despesa'])
 
 if metrica_31 == 'Receita':
-    col31.subheader('Distruibuição Despesas')
+    col31.subheader('Distruibuição Receita')
 else:
-    col31.subheader('Distruibuição Receitas')
+    col31.subheader('Distruibuição Despesas')
 
 fig_pizza = px.pie(df, names=metrica_31, values='total')
 col31.plotly_chart(fig_pizza, use_container_width=True)
