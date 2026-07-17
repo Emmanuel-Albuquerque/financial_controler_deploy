@@ -49,18 +49,18 @@ col31, col32, col33 = st.columns([0.34, 0.33, 0.34])
 metrica_31 = st.sidebar.selectbox('Análise Geral:', ['Receita', 'Despesa'])
 
 if metrica_31 == 'Receita':
-    col31.subheader('Distruibuição Receita')
+    col31.subheader('**Distruibuição Receita**')
     df_receita = df[df['origem'] == 'Receita']
     fig_pizza = px.pie(df_receita, names='classificacao', values='valor')
 else:
-    col31.subheader('Distruibuição Despesas')
+    col31.subheader('**Distruibuição Despesas**')
     df_despesa = df[df['origem'] == 'Despesa']
     fig_pizza = px.pie(df_despesa, names='classificacao', values='valor')
 
 col31.plotly_chart(fig_pizza, use_container_width=True)
 
 # Gráfico Distruibuição dos gastos
-col32.subheader('Para onde o dinheiro está indo')
+col32.subheader('**Para onde o dinheiro está indo**')
 
 df_despesas = df[df['origem'] == 'Despesa']
 despesas_agrupadas = df_despesas.groupby('classificacao')['valor'].sum().reset_index()
@@ -94,7 +94,7 @@ col32.plotly_chart(fig_cascata, use_container_width=True)
 
 # Gráfico Distruibuído por responsável
 
-col33.subheader("Despesas por Responsável")
+col33.subheader("**Despesas por Responsável**")
 
 responsavel_agrupado = df_despesas.groupby('responsavel')['valor'].sum().reset_index()
 responsavel_agrupado = responsavel_agrupado.sort_values(by='valor', ascending=True)
@@ -124,7 +124,7 @@ st.divider()
 
 # DF de depesas Pendentes
 
-st.subheader('Despesas Pendentes 🚨')
+st.subheader('**Despesas Pendentes 🚨**')
 
 df_pendente = df[df['situacao'] == 'Pendente']
 df_pendente_editado = st.data_editor(
@@ -161,7 +161,7 @@ if st.button('Salvar Atualizações de Pendências'):
             df_historico.loc[filtro_historico, 'situacao'] = 'Pago'
 
     conn.update(worksheet=f"{mes}/{ano}", data=df)
-    conn.updade(worksheet=f"Histórico", data=df_historico)
+    conn.update(worksheet=f"Histórico", data=df_historico)
 
     st.success('Pendências atualizadas com sucesso no banco de dados!')
     st.rerun()
