@@ -49,13 +49,15 @@ col31, col32, col33 = st.columns([0.34, 0.33, 0.34])
 metrica_31 = st.sidebar.selectbox('Análise Geral:', ['Receita', 'Despesa'])
 
 if metrica_31 == 'Receita':
+    tons_de_azul = ["#426CA3", "#0E9AEB", "#170BBE", "#041E66", "#97E2F0"]
     col31.subheader('**Distruibuição Receita**')
     df_receita = df[df['origem'] == 'Receita']
-    fig_pizza = px.pie(df_receita, names='classificacao', values='valor')
+    fig_pizza = px.pie(df_receita, names='classificacao', values='valor', color_discrete_sequence=tons_de_azul)
 else:
+    tons_de_vermelho = ['#8B0000', '#B22222', '#DC143C', '#FF4D4D', '#FF7675']
     col31.subheader('**Distruibuição Despesas**')
     df_despesa = df[df['origem'] == 'Despesa']
-    fig_pizza = px.pie(df_despesa, names='classificacao', values='valor')
+    fig_pizza = px.pie(df_despesa, names='classificacao', values='valor', color_discrete_sequence=tons_de_vermelho)
 
 col31.plotly_chart(fig_pizza, use_container_width=True)
 
@@ -79,9 +81,9 @@ fig_cascata = go.Figure(go.Waterfall(
     text=[f"R$ {v:,.2f}" for v in valores], # Mostra o valor em cima da barra
     y=valores,
     connector={"line": {"color": "rgb(63, 63, 63)"}},
-    decreasing={"marker": {"color": "#ff6666"}}, # Cor das despesas (vermelho)
-    increasing={"marker": {"color": "#66cc66"}}, # Cor das receitas (verde)
-    totals={"marker": {"color": "#66b3ff"}}      # Cor do saldo final (azul)
+    decreasing={"marker": {"color": "#ff4d4d"}}, # Cor das despesas (vermelho)
+    increasing={"marker": {"color": "#1e90ff"}}, # Cor das receitas (verde)
+    totals={"marker": {"color": "#52a4f1"}}      # Cor do saldo final (azul)
 ))
 
 fig_cascata.update_layout(
