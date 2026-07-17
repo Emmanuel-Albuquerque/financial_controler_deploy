@@ -50,10 +50,13 @@ metrica_31 = st.sidebar.selectbox('Análise Geral:', ['Receita', 'Despesa'])
 
 if metrica_31 == 'Receita':
     col31.subheader('Distruibuição Receita')
+    df_receita = df[df['origem'] == 'Receita']
+    fig_pizza = px.pie(df_receita, names='classificacao', values='valor')
 else:
     col31.subheader('Distruibuição Despesas')
+    df_despesa = df[df['origem'] == 'Despesa']
+    fig_pizza = px.pie(df_despesa, names='classificacao', values='valor')
 
-fig_pizza = px.pie(df, names=metrica_31, values='valor')
 col31.plotly_chart(fig_pizza, use_container_width=True)
 
 # Gráfico Distruibuição dos gastos
